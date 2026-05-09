@@ -1,6 +1,6 @@
 {
-  "name": "SITANGGUH Portal - SMP 6 Pekalongan",
-  "description": "Sistem Informasi Tanggap Agenda Harian Naskah Giat Guna Unggul Hasil (SITANGGUH) SMP 6 Pekalongan dengan fitur T-Bot AI.",
+  "name": "SITANGGUH Portal (T-Bot) - SMP 6 Pekalongan",
+  "description": "SITANGGUH (Sistem Informasi Tanggap Agenda Harian Naskah Giat Guna Unggul Hasil) SMP Negeri 6 Pekalongan dengan asisten cerdas T-Bot.",
   "requestFramePermissions": [],
   "majorCapabilities": []
 }

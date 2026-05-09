@@ -51,7 +51,7 @@ export default function App() {
 
   // Chat state
   const [chatHistory, setChatHistory] = useState<{role: 'user' | 'bot', text: string}[]>([
-    { role: 'bot', text: 'Halo! Selamat datang di SITANGGUH Portal (T-Bot) SMP Negeri 6 Pekalongan. Ada yang bisa T-Bot bantu hari ini? Tanyakan agenda kegiatan, laporkan kendala, atau tanyakan status layanan sekolah.' }
+    { role: 'bot', text: 'Halo! Saya T-Bot AIS, asisten digital SITANGGUH SMP 6 Pekalongan. Ada yang bisa saya bantu terkait agenda atau layanan sekolah hari ini?' }
   ]);
   const [userInput, setUserInput] = useState('');
   const [isBotThinking, setIsBotThinking] = useState(false);
@@ -253,20 +253,23 @@ export default function App() {
                 <p className="text-sm text-white/70 leading-relaxed mb-4">
                   Inovasi digital berbasis web yang menggunakan T-Bot — asisten chatbot cerdas berbasis AI — untuk membantu tenaga kependidikan mendokumentasikan agenda kegiatan harian dan penyelesaian tugas dengan cepat dan akuntabel.
                 </p>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="p-3 bg-white/5 rounded-xl border border-white/5">
-                    <p className="text-[9px] uppercase font-bold text-white/40 mb-1">Tendik Asisten</p>
-                    <p className="text-[10px] leading-tight text-white/60">Melaporkan agenda harian & tugas secara otomatis.</p>
+                
+                <div className="space-y-3 mb-6">
+                  <div className="flex items-start gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0" />
+                    <p className="text-xs text-white/60"><span className="text-white/90 font-bold">Tendik Asisten</span> → Melaporkan agenda harian & tugas secara otomatis</p>
                   </div>
-                  <div className="p-3 bg-white/5 rounded-xl border border-white/5">
-                    <p className="text-[9px] uppercase font-bold text-white/40 mb-1">Transparansi</p>
-                    <p className="text-[10px] leading-tight text-white/60">Siswa & Guru dapat melaporkan kendala layanan.</p>
+                  <div className="flex items-start gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0" />
+                    <p className="text-xs text-white/60"><span className="text-white/90 font-bold">Transparansi</span> → Siswa & Guru dapat melaporkan kendala layanan</p>
                   </div>
-                  <div className="p-3 bg-white/5 rounded-xl border border-white/5">
-                    <p className="text-[9px] uppercase font-bold text-white/40 mb-1">Akuntabilitas</p>
-                    <p className="text-[10px] leading-tight text-white/60">Laporan diubah menjadi tiket tugas penanggung jawab.</p>
+                  <div className="flex items-start gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0" />
+                    <p className="text-xs text-white/60"><span className="text-white/90 font-bold">Akuntabilitas</span> → Laporan diubah menjadi tiket tugas penanggung jawab</p>
                   </div>
                 </div>
+
+                <p className="text-xs text-white/40 italic">Ada yang bisa T-Bot bantu hari ini?</p>
               </div>
 
               <div className="bg-[#f0f2f5] border border-white/10 flex-1 flex flex-col overflow-hidden relative shadow-2xl rounded-2xl">
