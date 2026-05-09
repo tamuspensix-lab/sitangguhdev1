@@ -51,7 +51,7 @@ export default function App() {
 
   // Chat state
   const [chatHistory, setChatHistory] = useState<{role: 'user' | 'bot', text: string}[]>([
-    { role: 'bot', text: 'Halo! Saya T-Bot AIS, asisten digital SITANGGUH (Sistem Informasi Tanggap Agenda Harian Naskah Giat Guna Unggul Hasil) SMP 6 Pekalongan. Ada yang bisa saya bantu terkait agenda atau layanan sekolah?' }
+    { role: 'bot', text: 'Halo! Selamat datang di SITANGGUH Portal (T-Bot) SMP Negeri 6 Pekalongan. Ada yang bisa T-Bot bantu hari ini? Tanyakan agenda kegiatan, laporkan kendala, atau tanyakan status layanan sekolah.' }
   ]);
   const [userInput, setUserInput] = useState('');
   const [isBotThinking, setIsBotThinking] = useState(false);
@@ -239,11 +239,33 @@ export default function App() {
               <div className="mb-6 flex items-center justify-between border-b border-white/5 pb-6">
                 <div>
                   <h2 className="text-[10px] uppercase tracking-[0.5em] text-accent font-bold mb-1">SMP 6 PEKALONGAN</h2>
-                  <h1 className="text-2xl font-bold tracking-tight">SITANGGUH_Portal (T-Bot)</h1>
+                  <h1 className="text-2xl font-bold tracking-tight">SITANGGUH Portal (T-Bot)</h1>
                 </div>
                 <div className="flex items-center gap-3 text-[10px] font-mono text-white/40">
                   <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                  ONLINE_TRANS_BOT
+                  SITANGGUH_CONNECTED
+                </div>
+              </div>
+
+              {/* SITANGGUH Narrative Intro */}
+              <div className="mb-6 bg-white/5 border border-white/10 p-6 rounded-2xl">
+                <h3 className="text-accent text-[10px] uppercase font-bold tracking-widest mb-3">SITANGGUH (Sistem Informasi Tanggap Agenda Harian Naskah Giat Guna Unggul Hasil)</h3>
+                <p className="text-sm text-white/70 leading-relaxed mb-4">
+                  Inovasi digital berbasis web yang menggunakan T-Bot — asisten chatbot cerdas berbasis AI — untuk membantu tenaga kependidikan mendokumentasikan agenda kegiatan harian dan penyelesaian tugas dengan cepat dan akuntabel.
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="p-3 bg-white/5 rounded-xl border border-white/5">
+                    <p className="text-[9px] uppercase font-bold text-white/40 mb-1">Tendik Asisten</p>
+                    <p className="text-[10px] leading-tight text-white/60">Melaporkan agenda harian & tugas secara otomatis.</p>
+                  </div>
+                  <div className="p-3 bg-white/5 rounded-xl border border-white/5">
+                    <p className="text-[9px] uppercase font-bold text-white/40 mb-1">Transparansi</p>
+                    <p className="text-[10px] leading-tight text-white/60">Siswa & Guru dapat melaporkan kendala layanan.</p>
+                  </div>
+                  <div className="p-3 bg-white/5 rounded-xl border border-white/5">
+                    <p className="text-[9px] uppercase font-bold text-white/40 mb-1">Akuntabilitas</p>
+                    <p className="text-[10px] leading-tight text-white/60">Laporan diubah menjadi tiket tugas penanggung jawab.</p>
+                  </div>
                 </div>
               </div>
 
