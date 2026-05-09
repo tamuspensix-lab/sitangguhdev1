@@ -22,6 +22,7 @@ import {
   Loader2
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { FeaturesSection } from './components/FeaturesSection';
 import { 
   FAQ, 
   Activity, 
@@ -248,28 +249,21 @@ export default function App() {
               </div>
 
               {/* SITANGGUH Narrative Intro */}
-              <div className="mb-6 bg-white/5 border border-white/10 p-6 rounded-2xl">
-                <h3 className="text-accent text-[10px] uppercase font-bold tracking-widest mb-3">SITANGGUH (Sistem Informasi Tanggap Agenda Harian Naskah Giat Guna Unggul Hasil)</h3>
-                <p className="text-sm text-white/70 leading-relaxed mb-4">
-                  Inovasi digital berbasis web yang menggunakan T-Bot — asisten chatbot cerdas berbasis AI — untuk membantu tenaga kependidikan mendokumentasikan agenda kegiatan harian dan penyelesaian tugas dengan cepat dan akuntabel.
+              <div className="mb-10 bg-white/5 border border-white/10 p-8 md:p-10 rounded-3xl shadow-xl">
+                <h2 className="text-accent text-[10px] uppercase font-bold tracking-[0.5em] mb-4">
+                  SITANGGUH (SISTEM INFORMASI TANGGAP AGENDA HARIAN NASKAH GIAT GUNA UNGGUL HASIL)
+                </h2>
+                <p className="text-white/70 text-lg md:text-xl font-light leading-relaxed mb-10 max-w-3xl">
+                  Inovasi digital berbasis web yang menggunakan T-Bot — asisten chatbot cerdas berbasis AI — 
+                  untuk membantu tenaga kependidikan mendokumentasikan agenda kegiatan harian dan penyelesaian tugas dengan cepat dan akuntabel.
                 </p>
-                
-                <div className="space-y-3 mb-6">
-                  <div className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0" />
-                    <p className="text-xs text-white/60"><span className="text-white/90 font-bold">Tendik Asisten</span> → Melaporkan agenda harian & tugas secara otomatis</p>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0" />
-                    <p className="text-xs text-white/60"><span className="text-white/90 font-bold">Transparansi</span> → Siswa & Guru dapat melaporkan kendala layanan</p>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0" />
-                    <p className="text-xs text-white/60"><span className="text-white/90 font-bold">Akuntabilitas</span> → Laporan diubah menjadi tiket tugas penanggung jawab</p>
-                  </div>
-                </div>
 
-                <p className="text-xs text-white/40 italic">Ada yang bisa T-Bot bantu hari ini?</p>
+                <FeaturesSection />
+                
+                <div className="mt-10 pt-8 border-t border-white/5 flex items-center gap-4">
+                   <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+                   <p className="text-xs text-white/40 italic font-medium uppercase tracking-widest">Ada yang bisa T-Bot bantu hari ini?</p>
+                </div>
               </div>
 
               <div className="bg-[#f0f2f5] border border-white/10 flex-1 flex flex-col overflow-hidden relative shadow-2xl rounded-2xl">
