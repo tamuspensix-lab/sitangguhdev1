@@ -7,6 +7,14 @@ export default defineConfig(({mode}) => {
   const env = loadEnv(mode, '.', '');
   return {
     plugins: [react(), tailwindcss()],
+    build: {
+      sourcemap: false,
+      minify: 'esbuild',
+      cssMinify: true,
+      rollupOptions: {
+        maxParallelFileOps: 2,
+      }
+    },
     define: {
       'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
     },
