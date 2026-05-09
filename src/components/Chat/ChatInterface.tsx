@@ -35,10 +35,10 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
           <ChatBalloon key={i} message={chat} />
         ))}
         {isBotThinking && (
-          <div className="flex justify-start mb-2">
+          <div className="flex justify-start mb-4">
             <div className="relative">
-              <div className="absolute top-0 left-[-6px] w-3 h-3 bg-[#202c33] [clip-path:polygon(100%_0,0_0,100%_100%)]" />
-              <div className="bg-[#202c33] p-3 px-5 rounded-2xl rounded-tl-none flex gap-1.5 shadow-lg border border-white/5">
+              <div className="absolute top-[1px] left-[-7px] w-4 h-4 bg-[#202c33] [clip-path:polygon(100%_0,0_0,100%_100%)] border-l border-white/5" />
+              <div className="bg-[#202c33] p-3 px-5 rounded-[1.2rem] rounded-tl-none flex gap-1.5 shadow-lg border border-white/5">
                 <div className="w-1.5 h-1.5 bg-accent/40 rounded-full animate-bounce" />
                 <div className="w-1.5 h-1.5 bg-accent/40 rounded-full animate-bounce [animation-delay:0.2s]" />
                 <div className="w-1.5 h-1.5 bg-accent/40 rounded-full animate-bounce [animation-delay:0.4s]" />

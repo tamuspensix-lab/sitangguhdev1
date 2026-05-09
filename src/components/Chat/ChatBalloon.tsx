@@ -4,6 +4,7 @@
  */
 
 import React from 'react';
+import { motion } from 'motion/react';
 import { ChatMessage } from '../../types';
 
 interface ChatBalloonProps {
@@ -14,27 +15,40 @@ export const ChatBalloon: React.FC<ChatBalloonProps> = ({ message }) => {
   const isUser = message.role === 'user';
   
   return (
-    <div className={`flex ${isUser ? 'justify-end' : 'justify-start'} mb-2`}>
-      <div className={`max-w-[85%] md:max-w-[75%] relative group animate-in fade-in slide-in-from-bottom-2 duration-300`}>
-        {/* Balloon Tail */}
-        <div className={`absolute top-0 w-3 h-3 ${
+    <motion.div 
+      initial={{ opacity: 0, y: 10, scale: 0.95 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      className={`flex ${isUser ? 'justify-end' : 'justify-start'} mb-4`}
+    >
+      <div className={`max-w-[85%] md:max-w-[75%] relative group`}>
+        {/* Modern Balloon Tail */}
+        <div className={`absolute top-[1px] w-4 h-4 transition-colors ${
           isUser 
-          ? 'right-[-6px] bg-[#054d44] [clip-path:polygon(0_0,0_100%,100%_0)]' 
-          : 'left-[-6px] bg-[#202c33] [clip-path:polygon(100%_0,0_0,100%_100%)]'
+          ? 'right-[-7px] bg-[#005c4b] [clip-path:polygon(0_0,0_100%,100%_0)]' 
+          : 'left-[-7px] bg-[#202c33] [clip-path:polygon(100%_0,0_0,100%_100%)]'
         }`} />
         
-        <div className={`p-3 px-5 text-sm md:text-base leading-relaxed shadow-lg ${
+        <div className={`py-2 px-4 shadow-xl transition-all hover:brightness-110 ${
           isUser 
-          ? 'bg-[#054d44] text-white rounded-2xl rounded-tr-none' 
-          : 'bg-[#202c33] text-[#e9edef] rounded-2xl rounded-tl-none'
+          ? 'bg-[#005c4b] text-white rounded-[1.2rem] rounded-tr-none' 
+          : 'bg-[#202c33] text-[#e9edef] rounded-[1.2rem] rounded-tl-none border border-white/5'
         }`}>
-          {message.text}
-          <div className="flex justify-end items-center gap-1 mt-1 opacity-40 text-[9px] font-mono">
-            {message.timestamp}
-            {isUser && <span className="text-blue-400 font-bold">✓✓</span>}
+          <p className="text-sm md:text-[15px] leading-relaxed whitespace-pre-wrap break-words">
+            {message.text}
+          </p>
+          
+          <div className="flex justify-end items-center gap-1.5 mt-1.5 leading-none">
+            <span className="opacity-40 text-[9px] font-mono tracking-tighter">
+              {message.timestamp}
+            </span>
+            {isUser && (
+              <span className="text-[#53bdeb] text-[10px] font-bold tracking-[-2px]">
+                ✓✓
+              </span>
+            )}
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
