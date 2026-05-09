@@ -5,7 +5,7 @@
 
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { 
-  MessageSquare, 
+  Home, 
   Calendar as CalendarIcon, 
   Settings, 
   Send, 
@@ -51,7 +51,7 @@ export default function App() {
 
   // Chat state
   const [chatHistory, setChatHistory] = useState<{role: 'user' | 'bot', text: string}[]>([
-    { role: 'bot', text: 'Halo! Saya asisten digital SMP 6 Pekalongan. Ada yang bisa saya bantu?' }
+    { role: 'bot', text: 'Halo! Saya T-Bot AIS, asisten digital SITANGGUH (Sistem Informasi Tanggap Agenda Harian Naskah Giat Guna Unggul Hasil) SMP 6 Pekalongan. Ada yang bisa saya bantu terkait agenda atau layanan sekolah?' }
   ]);
   const [userInput, setUserInput] = useState('');
   const [isBotThinking, setIsBotThinking] = useState(false);
@@ -190,9 +190,10 @@ export default function App() {
           SMP 6 Pekalongan
         </div>
         
+
         <div className="flex flex-row md:flex-col items-center justify-center gap-6 md:gap-10 w-full px-4 md:px-0">
           {[
-            { id: 'chatbot', icon: MessageSquare },
+            { id: 'chatbot', icon: Home },
             { id: 'activity', icon: CalendarIcon },
           ].map((item) => (
             <button
@@ -238,27 +239,34 @@ export default function App() {
               <div className="mb-6 flex items-center justify-between border-b border-white/5 pb-6">
                 <div>
                   <h2 className="text-[10px] uppercase tracking-[0.5em] text-accent font-bold mb-1">SMP 6 PEKALONGAN</h2>
-                  <h1 className="text-2xl font-bold tracking-tight">Assistance_Portal</h1>
+                  <h1 className="text-2xl font-bold tracking-tight">SITANGGUH_Portal (T-Bot)</h1>
                 </div>
                 <div className="flex items-center gap-3 text-[10px] font-mono text-white/40">
                   <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                  SYSTEM_LINKED
+                  ONLINE_TRANS_BOT
                 </div>
               </div>
 
-              <div className="bg-[#e5ddd5] border border-white/10 flex-1 flex flex-col overflow-hidden relative shadow-2xl rounded-2xl">
+              <div className="bg-[#f0f2f5] border border-white/10 flex-1 flex flex-col overflow-hidden relative shadow-2xl rounded-2xl">
                 {/* Chat Bodies */}
-                <div className="flex-1 overflow-y-auto p-4 md:p-6 space-y-4">
+                <div className="flex-1 overflow-y-auto p-4 md:p-6 space-y-4 bg-[url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png')] bg-repeat opacity-95">
                   {chatHistory.map((chat, i) => (
                     <div 
                       key={i} 
-                      className={`flex ${chat.role === 'user' ? 'justify-end' : 'justify-start'}`}
+                      className={`flex ${chat.role === 'user' ? 'justify-end' : 'justify-start'} mb-2`}
                     >
                       <div className={`max-w-[85%] md:max-w-[70%] relative group`}>
-                        <div className={`p-3 text-sm md:text-base leading-relaxed shadow-sm ${
+                        {/* Tail for Balloon */}
+                        <div className={`absolute top-0 w-3 h-3 ${
                           chat.role === 'user' 
-                          ? 'bg-[#dcf8c6] text-[#075e54] rounded-lg rounded-tr-none' 
-                          : 'bg-white text-[#4a4a4a] rounded-lg rounded-tl-none'
+                          ? 'right-[-8px] bg-[#dcf8c6] [clip-path:polygon(0_0,0_100%,100%_0)]' 
+                          : 'left-[-8px] bg-white [clip-path:polygon(100%_0,0_0,100%_100%)]'
+                        }`} />
+                        
+                        <div className={`p-3 px-4 text-sm md:text-base leading-relaxed shadow-md ${
+                          chat.role === 'user' 
+                          ? 'bg-[#dcf8c6] text-[#075e54] rounded-2xl rounded-tr-none' 
+                          : 'bg-white text-[#4a4a4a] rounded-2xl rounded-tl-none'
                         }`}>
                           {chat.text.replace(/\*\*/g, '')}
                           <div className="flex justify-end items-center gap-1 mt-1 opacity-40 text-[9px] font-mono">
@@ -270,11 +278,14 @@ export default function App() {
                     </div>
                   ))}
                   {isBotThinking && (
-                    <div className="flex justify-start">
-                      <div className="bg-white p-3 rounded-lg rounded-tl-none flex gap-1 shadow-sm">
-                        <div className="w-1.5 h-1.5 bg-slate-300 rounded-full animate-bounce" />
-                        <div className="w-1.5 h-1.5 bg-slate-300 rounded-full animate-bounce [animation-delay:0.2s]" />
-                        <div className="w-1.5 h-1.5 bg-slate-300 rounded-full animate-bounce [animation-delay:0.4s]" />
+                    <div className="flex justify-start mb-2">
+                      <div className="relative">
+                        <div className="absolute top-0 left-[-8px] w-3 h-3 bg-white [clip-path:polygon(100%_0,0_0,100%_100%)]" />
+                        <div className="bg-white p-3 px-4 rounded-2xl rounded-tl-none flex gap-1 shadow-md">
+                          <div className="w-1.5 h-1.5 bg-slate-300 rounded-full animate-bounce" />
+                          <div className="w-1.5 h-1.5 bg-slate-300 rounded-full animate-bounce [animation-delay:0.2s]" />
+                          <div className="w-1.5 h-1.5 bg-slate-300 rounded-full animate-bounce [animation-delay:0.4s]" />
+                        </div>
                       </div>
                     </div>
                   )}
