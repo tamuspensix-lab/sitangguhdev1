@@ -91,9 +91,27 @@ async function startServer() {
     app.use(vite.middlewares);
   } else {
     const distPath = path.join(process.cwd(), 'dist');
-    app.use(express.static(distPath));
+    
+    if (!import.meta.env) { // Check if we're in a regular Node process
+      console.log(`Serving static files from: ${distPath}`);
+    }
+
+    // Ensure correct MIME types for JS
+    app.use(express.static(distPath, {
+      setHeaders: (res, filePath) => {
+        if (filePath.endsWith('.js')) {
+          res.setHeader('Content-Type', 'application/javascript');
+        }
+      }
+    }));
+
     app.get('*', (req, res) => {
-      res.sendFile(path.join(distPath, 'index.html'));
+      const indexPath = path.join(distPath, 'index.html');
+      res.sendFile(indexPath, (err) => {
+        if (err) {
+          res.status(500).send("Index file not found. Have you run 'npm run build'?");
+        }
+      });
     });
   }
 

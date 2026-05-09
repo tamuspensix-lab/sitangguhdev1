@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "tsx server.ts",
     "start": "node dist/server.js",
-    "build": "NODE_OPTIONS=\"--max-old-space-size=3800\" vite build && NODE_OPTIONS=\"--max-old-space-size=3800\" esbuild server.ts --bundle --platform=node --outfile=dist/server.js --format=esm --minify",
+    "build": "NODE_OPTIONS=\"--max-old-space-size=2048\" vite build && NODE_OPTIONS=\"--max-old-space-size=2048\" esbuild server.ts --bundle --platform=node --outfile=dist/server.js --format=esm --minify",
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit"

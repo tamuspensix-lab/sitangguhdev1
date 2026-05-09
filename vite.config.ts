@@ -11,9 +11,13 @@ export default defineConfig(({mode}) => {
       sourcemap: false,
       minify: 'esbuild',
       cssMinify: true,
+      emptyOutDir: true,
       rollupOptions: {
         maxParallelFileOps: 2,
       }
+    },
+    esbuild: {
+      logOverride: { 'this-is-undefined-in-esm': 'silent' }
     },
     define: {
       'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
